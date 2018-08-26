@@ -4,4 +4,5 @@ version = "0.1.0"
 authors = ["Lilith645 <lilith@inet-sys.com>"]
 
 [dependencies]
+cgmath = "*"
 gilrs = "0.6.1"
