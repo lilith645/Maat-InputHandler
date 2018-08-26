@@ -1,3 +1,7 @@
+extern crate gilrs;
+
+use gilrs::{Gilrs, Button, Event};
+
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const ESCAPE: u32 = 1;
 #[cfg(target_os = "macos")]
@@ -617,6 +621,38 @@ impl MappedKeys {
   
   pub fn tab_pressed(&mut self) -> bool {
     !self.tab_released
+  }
+}
+
+pub struct Controller {
+  gilrs: Gilrs,
+}
+
+impl Controller {
+  pub fn new() -> Controller {
+    Controller {
+      gilrs: Gilrs::new().unwrap(),
+    }
+  }
+  
+  pub fn list_controllers(&mut self) {
+    for (_id, gamepad) in self.gilrs.gamepads() {
+      println!("{} is {:?}", gamepad.name(), gamepad.power_info());
+    }
+  }
+  
+  pub fn test_loop(&mut self) {
+    loop {
+      // Examine new events
+      while let Some(Event { id, event, time }) = self.gilrs.next_event() {
+          println!("{:?} New event from {}: {:?}", time, id, event);
+      }
+
+      // You can also use cached gamepad state
+      if self.gilrs[0].is_pressed(Button::South) {
+          println!("Button South is pressed (XBox - A, PS - X)");
+      }
+    }
   }
 }
 
