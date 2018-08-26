@@ -1,6 +1,9 @@
 extern crate gilrs;
+extern crate cgmath;
 
-use gilrs::{Gilrs, Button, Event};
+use cgmath::Vector2;
+
+use gilrs::{Gilrs, Button, Axis, Event};
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const ESCAPE: u32 = 1;
@@ -645,14 +648,92 @@ impl Controller {
     loop {
       // Examine new events
       while let Some(Event { id, event, time }) = self.gilrs.next_event() {
-          println!("{:?} New event from {}: {:?}", time, id, event);
+        println!("{:?} New event from {}: {:?}", time, id, event);
       }
 
       // You can also use cached gamepad state
       if self.gilrs[0].is_pressed(Button::South) {
-          println!("Button South is pressed (XBox - A, PS - X)");
+        println!("Button South is pressed (XBox - A, PS - X)");
       }
     }
+  }
+  
+  pub fn update(&mut self) {
+    self.gilrs.next_event();
+  }
+  
+  pub fn start_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::Start)
+  }
+  
+  pub fn select_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::Select)
+  }
+  
+  pub fn mode_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::Mode)
+  }
+  
+  pub fn a_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::South)
+  }
+  
+  pub fn y_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::North)
+  }
+  
+  pub fn b_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::East)
+  }
+  
+  pub fn x_button_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::West)
+  }
+  
+  pub fn dpad_down_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::DPadDown)
+  }
+  
+  pub fn left_bumper_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::LeftTrigger)
+  }
+  
+  pub fn left_trigger_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::LeftTrigger2)
+  }
+  
+  pub fn right_bumper_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::RightTrigger)
+  }
+  
+  pub fn right_trigger_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::RightTrigger2)
+  }
+  
+  pub fn dpad_up_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::DPadUp)
+  }
+  
+  pub fn dpad_left_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::DPadLeft)
+  }
+  
+  pub fn dpad_right_pressed(&mut self) -> bool {
+    self.gilrs[0].is_pressed(Button::DPadRight)
+  }
+  
+  pub fn left_stick_position(&mut self) -> Vector2<f32> {
+    let x = self.gilrs[0].value(Axis::LeftStickX);
+    let y = self.gilrs[0].value(Axis::LeftStickY);
+    
+    Vector2::new(x, y)
+  }
+  
+  pub fn right_stick_position(&mut self) -> Vector2<f32> {
+    let x = self.gilrs[0].value(Axis::RightStickX);
+    let y = self.gilrs[0].value(Axis::RightStickY);
+    
+    Vector2::new(x, y)
   }
 }
 
