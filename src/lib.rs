@@ -385,11 +385,11 @@ impl MappedKeys {
     }
   }
   
-  pub fn key_released(&mut self, key: u32) -> bool {
+  pub fn key_released(&self, key: u32) -> bool {
     (self.was_key_released(key) || !self.is_key_pressed(key))
   }
   
-  pub fn check_released(&mut self, released: bool, key: u32) -> bool {
+  pub fn check_released(&self, released: bool, key: u32) -> bool {
     let mut key_released = released;
     if !key_released {
       if self.key_released(key) {
@@ -501,7 +501,7 @@ impl MappedKeys {
     false
   }
 
-  fn was_key_released(&mut self, key: u32) -> bool {
+  fn was_key_released(&self, key: u32) -> bool {
     for element in self.released_this_render.iter() {
       if *element == key {
         return true;
@@ -510,119 +510,119 @@ impl MappedKeys {
     false
   }
   
-  pub fn a_pressed(&mut self) -> bool {
+  pub fn a_pressed(&self) -> bool {
     !self.a_released
   }
   
-  pub fn b_pressed(&mut self) -> bool {
+  pub fn b_pressed(&self) -> bool {
     !self.b_released
   }
   
-  pub fn c_pressed(&mut self) -> bool {
+  pub fn c_pressed(&self) -> bool {
     !self.c_released
   }
   
-  pub fn d_pressed(&mut self) -> bool {
+  pub fn d_pressed(&self) -> bool {
     !self.d_released
   }
   
-  pub fn e_pressed(&mut self) -> bool {
+  pub fn e_pressed(&self) -> bool {
     !self.e_released
   }
   
-  pub fn f_pressed(&mut self) -> bool {
+  pub fn f_pressed(&self) -> bool {
     !self.f_released
   }
   
-  pub fn g_pressed(&mut self) -> bool {
+  pub fn g_pressed(&self) -> bool {
     !self.g_released
   }
   
-  pub fn h_pressed(&mut self) -> bool {
+  pub fn h_pressed(&self) -> bool {
     !self.h_released
   }
   
-  pub fn i_pressed(&mut self) -> bool {
+  pub fn i_pressed(&self) -> bool {
     !self.i_released
   }
   
-  pub fn j_pressed(&mut self) -> bool {
+  pub fn j_pressed(&self) -> bool {
     !self.j_released
   }
   
-  pub fn k_pressed(&mut self) -> bool {
+  pub fn k_pressed(&self) -> bool {
     !self.k_released
   }
   
-  pub fn l_pressed(&mut self) -> bool {
+  pub fn l_pressed(&self) -> bool {
     !self.l_released
   }
   
-  pub fn m_pressed(&mut self) -> bool {
+  pub fn m_pressed(&self) -> bool {
     !self.m_released
   }
   
-  pub fn n_pressed(&mut self) -> bool {
+  pub fn n_pressed(&self) -> bool {
     !self.n_released
   }
   
-  pub fn o_pressed(&mut self) -> bool {
+  pub fn o_pressed(&self) -> bool {
     !self.o_released
   }
   
-  pub fn p_pressed(&mut self) -> bool {
+  pub fn p_pressed(&self) -> bool {
     !self.p_released
   }
   
-  pub fn q_pressed(&mut self) -> bool {
+  pub fn q_pressed(&self) -> bool {
     !self.q_released
   }
   
-  pub fn r_pressed(&mut self) -> bool {
+  pub fn r_pressed(&self) -> bool {
     !self.r_released
   }
   
-  pub fn s_pressed(&mut self) -> bool {
+  pub fn s_pressed(&self) -> bool {
     !self.s_released
   }
   
-  pub fn t_pressed(&mut self) -> bool {
+  pub fn t_pressed(&self) -> bool {
     !self.t_released
   }
   
-  pub fn u_pressed(&mut self) -> bool {
+  pub fn u_pressed(&self) -> bool {
     !self.u_released
   }
   
-  pub fn v_pressed(&mut self) -> bool {
+  pub fn v_pressed(&self) -> bool {
     !self.v_released
   }
   
-  pub fn w_pressed(&mut self) -> bool {
+  pub fn w_pressed(&self) -> bool {
     !self.w_released
   }
   
-  pub fn x_pressed(&mut self) -> bool {
+  pub fn x_pressed(&self) -> bool {
     !self.x_released
   }
   
-  pub fn y_pressed(&mut self) -> bool {
+  pub fn y_pressed(&self) -> bool {
     !self.y_released
   }
   
-  pub fn z_pressed(&mut self) -> bool {
+  pub fn z_pressed(&self) -> bool {
     !self.z_released
   }
   
-  pub fn escape_pressed(&mut self) -> bool {
+  pub fn escape_pressed(&self) -> bool {
     !self.escape_released
   }
   
-  pub fn f10_pressed(&mut self) -> bool {
+  pub fn f10_pressed(&self) -> bool {
     !self.f10_released
   }
   
-  pub fn tab_pressed(&mut self) -> bool {
+  pub fn tab_pressed(&self) -> bool {
     !self.tab_released
   }
 }
@@ -662,74 +662,74 @@ impl Controller {
     self.gilrs.next_event();
   }
   
-  pub fn start_button_pressed(&mut self) -> bool {
+  pub fn start_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::Start)
   }
   
-  pub fn select_button_pressed(&mut self) -> bool {
+  pub fn select_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::Select)
   }
   
-  pub fn mode_button_pressed(&mut self) -> bool {
+  pub fn mode_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::Mode)
   }
   
-  pub fn a_button_pressed(&mut self) -> bool {
+  pub fn a_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::South)
   }
   
-  pub fn y_button_pressed(&mut self) -> bool {
+  pub fn y_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::North)
   }
   
-  pub fn b_button_pressed(&mut self) -> bool {
+  pub fn b_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::East)
   }
   
-  pub fn x_button_pressed(&mut self) -> bool {
+  pub fn x_button_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::West)
   }
   
-  pub fn dpad_down_pressed(&mut self) -> bool {
+  pub fn dpad_down_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::DPadDown)
   }
   
-  pub fn left_bumper_pressed(&mut self) -> bool {
+  pub fn left_bumper_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::LeftTrigger)
   }
   
-  pub fn left_trigger_pressed(&mut self) -> bool {
+  pub fn left_trigger_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::LeftTrigger2)
   }
   
-  pub fn right_bumper_pressed(&mut self) -> bool {
+  pub fn right_bumper_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::RightTrigger)
   }
   
-  pub fn right_trigger_pressed(&mut self) -> bool {
+  pub fn right_trigger_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::RightTrigger2)
   }
   
-  pub fn dpad_up_pressed(&mut self) -> bool {
+  pub fn dpad_up_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::DPadUp)
   }
   
-  pub fn dpad_left_pressed(&mut self) -> bool {
+  pub fn dpad_left_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::DPadLeft)
   }
   
-  pub fn dpad_right_pressed(&mut self) -> bool {
+  pub fn dpad_right_pressed(&self) -> bool {
     self.gilrs[0].is_pressed(Button::DPadRight)
   }
   
-  pub fn left_stick_position(&mut self) -> Vector2<f32> {
+  pub fn left_stick_position(&self) -> Vector2<f32> {
     let x = self.gilrs[0].value(Axis::LeftStickX);
     let y = self.gilrs[0].value(Axis::LeftStickY);
     
     Vector2::new(x, y)
   }
   
-  pub fn right_stick_position(&mut self) -> Vector2<f32> {
+  pub fn right_stick_position(&self) -> Vector2<f32> {
     let x = self.gilrs[0].value(Axis::RightStickX);
     let y = self.gilrs[0].value(Axis::RightStickY);
     
