@@ -344,6 +344,7 @@ pub struct MappedKeys {
   escape_released: bool,
   f10_released: bool,
   tab_released: bool,
+  pub pressed_this_frame: Vec<String>,
   currently_pressed: Vec<u32>,
   released_this_render: Vec<u32>,
 }
@@ -380,9 +381,14 @@ impl MappedKeys {
       escape_released: true,
       f10_released: true,
       tab_released: true,
+      pressed_this_frame: Vec::new(),
       currently_pressed: Vec::new(),
       released_this_render: Vec::new(),
     }
+  }
+  
+  pub fn get_pressed_this_frame(&self) -> Vec<String> {
+    self.pressed_this_frame.clone()
   }
   
   pub fn key_released(&self, key: u32) -> bool {
@@ -404,6 +410,7 @@ impl MappedKeys {
   }
   
   pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
+    self.pressed_this_frame.clear();
     self.currently_pressed = pressed;
     self.released_this_render = released;
     
