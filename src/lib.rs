@@ -640,14 +640,17 @@ pub struct Controller {
 
 impl Controller {
   pub fn new() -> Controller {
-    Controller {
+    let mut controller = Controller {
       gilrs: Gilrs::new().unwrap(),
-    }
+    };
+    controller.list_controllers();
+    
+    controller
   }
   
   pub fn list_controllers(&mut self) {
-    for (_id, gamepad) in self.gilrs.gamepads() {
-      println!("{} is {:?}", gamepad.name(), gamepad.power_info());
+    for (id, gamepad) in self.gilrs.gamepads() {
+      println!("Gamepad {}: {} is {:?}", id, gamepad.name(), gamepad.power_info());
     }
   }
   
