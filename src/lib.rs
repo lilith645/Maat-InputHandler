@@ -140,6 +140,10 @@ pub const Z: u32 = 44;
 #[cfg(target_os = "macos")]
 pub const Z: u32 = 6;
 
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const SPACE: u32 = 57;
+#[cfg(target_os = "macos")]
+pub const SPACE: u32 = 49;
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const F10: u32 = 68;
@@ -341,6 +345,7 @@ pub struct MappedKeys {
   x_released: bool,
   y_released: bool,
   z_released: bool,
+  space_released: bool,
   escape_released: bool,
   f10_released: bool,
   tab_released: bool,
@@ -378,6 +383,7 @@ impl MappedKeys {
       x_released: true,
       y_released: true,
       z_released: true,
+      space_released: true,
       escape_released: true,
       f10_released: true,
       tab_released: true,
@@ -467,6 +473,16 @@ impl MappedKeys {
     self.x_released = self.check_released(x, X);
     self.y_released = self.check_released(y, Y);
     self.z_released = self.check_released(z, Z);
+    
+    if !self.space_released {
+      if self.key_released(SPACE) {
+        self.space_released = true;
+      }
+    } else {
+      if self.is_key_pressed(SPACE) {
+        self.space_released = false;
+      }
+    }
     
     if !self.escape_released {
       if self.key_released(ESCAPE) {
@@ -619,6 +635,10 @@ impl MappedKeys {
   
   pub fn z_pressed(&self) -> bool {
     !self.z_released
+  }
+  
+  pub fn space_pressed(&self) -> bool {
+    !self.space_released
   }
   
   pub fn escape_pressed(&self) -> bool {
