@@ -160,6 +160,46 @@ pub const ONE: u32 = 2;
 #[cfg(target_os = "macos")]
 pub const ONE: u32 = 18;
 
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const TWO: u32 = 3;
+#[cfg(target_os = "macos")]
+pub const TWo: u32 = 19;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const THREE: u32 = 4;
+#[cfg(target_os = "macos")]
+pub const THREE: u32 = 20;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const FOUR: u32 = 5;
+#[cfg(target_os = "macos")]
+pub const FOUR: u32 = 21;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const FIVE: u32 = 6;
+#[cfg(target_os = "macos")]
+pub const FIVE: u32 = 23;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const SIX: u32 = 7;
+#[cfg(target_os = "macos")]
+pub const SIX: u32 = 22;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const SEVEN: u32 = 8;
+#[cfg(target_os = "macos")]
+pub const SEVEN: u32 = 26;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const EIGHT: u32 = 9;
+#[cfg(target_os = "macos")]
+pub const EIGHT: u32 = 28;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const NINE: u32 = 10;
+#[cfg(target_os = "macos")]
+pub const NINE: u32 = 25;
+
 //macos
 //escape                37
 //a                     0
@@ -351,6 +391,14 @@ pub struct MappedKeys {
   y_released: bool,
   z_released: bool,
   one_released: bool,
+  two_released: bool,
+  three_released: bool,
+  four_released: bool,
+  five_released: bool,
+  six_released: bool,
+  seven_released: bool,
+  eight_released: bool,
+  nine_released: bool,
   space_released: bool,
   escape_released: bool,
   f10_released: bool,
@@ -390,6 +438,14 @@ impl MappedKeys {
       y_released: true,
       z_released: true,
       one_released: true,
+      two_released: true,
+      three_released: true,
+      four_released: true,
+      five_released: true,
+      six_released: true,
+      seven_released: true,
+      eight_released: true,
+      nine_released: true,
       space_released: true,
       escape_released: true,
       f10_released: true,
@@ -488,6 +544,86 @@ impl MappedKeys {
     } else {
       if self.is_key_pressed(ONE) {
         self.one_released = false;
+      }
+    }
+    
+    if !self.two_released {
+      if self.key_released(TWO) {
+        self.two_released = true;
+      }
+    } else {
+      if self.is_key_pressed(TWO) {
+        self.two_released = false;
+      }
+    }
+    
+    if !self.three_released {
+      if self.key_released(THREE) {
+        self.three_released = true;
+      }
+    } else {
+      if self.is_key_pressed(THREE) {
+        self.three_released = false;
+      }
+    }
+    
+    if !self.four_released {
+      if self.key_released(FOUR) {
+        self.four_released = true;
+      }
+    } else {
+      if self.is_key_pressed(FOUR) {
+        self.four_released = false;
+      }
+    }
+    
+    if !self.five_released {
+      if self.key_released(FIVE) {
+        self.five_released = true;
+      }
+    } else {
+      if self.is_key_pressed(FIVE) {
+        self.five_released = false;
+      }
+    }
+    
+    if !self.six_released {
+      if self.key_released(SIX) {
+        self.six_released = true;
+      }
+    } else {
+      if self.is_key_pressed(SIX) {
+        self.six_released = false;
+      }
+    }
+    
+    if !self.seven_released {
+      if self.key_released(SEVEN) {
+        self.seven_released = true;
+      }
+    } else {
+      if self.is_key_pressed(SEVEN) {
+        self.seven_released = false;
+      }
+    }
+    
+    if !self.eight_released {
+      if self.key_released(EIGHT) {
+        self.eight_released = true;
+      }
+    } else {
+      if self.is_key_pressed(EIGHT) {
+        self.eight_released = false;
+      }
+    }
+    
+    if !self.nine_released {
+      if self.key_released(NINE) {
+        self.nine_released = true;
+      }
+    } else {
+      if self.is_key_pressed(NINE) {
+        self.nine_released = false;
       }
     }
     
@@ -656,6 +792,38 @@ impl MappedKeys {
   
   pub fn one_pressed(&self) -> bool {
     !self.one_released
+  }
+  
+  pub fn two_pressed(&self) -> bool {
+    !self.two_released
+  }
+  
+  pub fn three_pressed(&self) -> bool {
+    !self.three_released
+  }
+  
+  pub fn four_pressed(&self) -> bool {
+    !self.four_released
+  }
+  
+  pub fn five_pressed(&self) -> bool {
+    !self.five_released
+  }
+  
+  pub fn six_pressed(&self) -> bool {
+    !self.six_released
+  }
+  
+  pub fn seven_pressed(&self) -> bool {
+    !self.seven_released
+  }
+  
+  pub fn eight_pressed(&self) -> bool {
+    !self.eight_released
+  }
+  
+  pub fn nine_pressed(&self) -> bool {
+    !self.nine_released
   }
   
   pub fn space_pressed(&self) -> bool {
