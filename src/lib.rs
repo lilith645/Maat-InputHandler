@@ -146,9 +146,64 @@ pub const SPACE: u32 = 57;
 pub const SPACE: u32 = 49;
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F1: u32 = 59;
+#[cfg(target_os = "macos")]
+pub const F1: u32 = 120;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F2: u32 = 60;
+#[cfg(target_os = "macos")]
+pub const F2: u32 = 122;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F3: u32 = 61;
+#[cfg(target_os = "macos")]
+pub const F3: u32 = 99;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F4: u32 = 62;
+#[cfg(target_os = "macos")]
+pub const F4: u32 = 118;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F5: u32 = 63;
+#[cfg(target_os = "macos")]
+pub const F5: u32 = 96;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F6: u32 = 64;
+#[cfg(target_os = "macos")]
+pub const F6: u32 = 97;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F7: u32 = 65;
+#[cfg(target_os = "macos")]
+pub const F7: u32 = 98;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F8: u32 = 66;
+#[cfg(target_os = "macos")]
+pub const F8: u32 = 100;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F9: u32 = 67;
+#[cfg(target_os = "macos")]
+pub const F9: u32 = 101;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const F10: u32 = 68;
 #[cfg(target_os = "macos")]
 pub const F10: u32 = 109;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F11: u32 = 87;
+#[cfg(target_os = "macos")]
+pub const F11: u32 = 0; // TO BE UPDATE
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const F12: u32 = 88;
+#[cfg(target_os = "macos")]
+pub const F12: u32 = 0; // TO BE UPDATE
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const TAB: u32 = 15;
@@ -401,7 +456,18 @@ pub struct MappedKeys {
   nine_released: bool,
   space_released: bool,
   escape_released: bool,
+  f1_released: bool,
+  f2_released: bool,
+  f3_released: bool,
+  f4_released: bool,
+  f5_released: bool,
+  f6_released: bool,
+  f7_released: bool,
+  f8_released: bool,
+  f9_released: bool,
   f10_released: bool,
+  f11_released: bool,
+  f12_released: bool,
   tab_released: bool,
   pub pressed_this_frame: Vec<String>,
   currently_pressed: Vec<u32>,
@@ -448,7 +514,18 @@ impl MappedKeys {
       nine_released: true,
       space_released: true,
       escape_released: true,
+      f1_released: true,
+      f2_released: true,
+      f3_released: true,
+      f4_released: true,
+      f5_released: true,
+      f6_released: true,
+      f7_released: true,
+      f8_released: true,
+      f9_released: true,
       f10_released: true,
+      f11_released: true,
+      f12_released: true,
       tab_released: true,
       pressed_this_frame: Vec::new(),
       currently_pressed: Vec::new(),
@@ -647,6 +724,96 @@ impl MappedKeys {
       }
     }
     
+    if !self.f1_released {
+      if self.key_released(F1) {
+        self.f1_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F1) {
+        self.f1_released = false;
+      }
+    }
+    
+    if !self.f2_released {
+      if self.key_released(F2) {
+        self.f2_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F2) {
+        self.f2_released = false;
+      }
+    }
+    
+    if !self.f3_released {
+      if self.key_released(F3) {
+        self.f3_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F3) {
+        self.f3_released = false;
+      }
+    }
+    
+    if !self.f4_released {
+      if self.key_released(F4) {
+        self.f4_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F4) {
+        self.f4_released = false;
+      }
+    }
+    
+    if !self.f5_released {
+      if self.key_released(F5) {
+        self.f5_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F5) {
+        self.f5_released = false;
+      }
+    }
+    
+    if !self.f6_released {
+      if self.key_released(F6) {
+        self.f6_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F6) {
+        self.f6_released = false;
+      }
+    }
+    
+    if !self.f7_released {
+      if self.key_released(F7) {
+        self.f7_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F7) {
+        self.f7_released = false;
+      }
+    }
+    
+    if !self.f8_released {
+      if self.key_released(F8) {
+        self.f8_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F8) {
+        self.f8_released = false;
+      }
+    }
+    
+    if !self.f9_released {
+      if self.key_released(F9) {
+        self.f9_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F9) {
+        self.f9_released = false;
+      }
+    }
+    
     if !self.f10_released {
       if self.key_released(F10) {
         self.f10_released = true;
@@ -654,6 +821,26 @@ impl MappedKeys {
     } else {
       if self.is_key_pressed(F10) {
         self.f10_released = false;
+      }
+    }
+    
+    if !self.f11_released {
+      if self.key_released(F11) {
+        self.f11_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F11) {
+        self.f12_released = false;
+      }
+    }
+    
+    if !self.f12_released {
+      if self.key_released(F12) {
+        self.f12_released = true;
+      }
+    } else {
+      if self.is_key_pressed(F12) {
+        self.f12_released = false;
       }
     }
     
@@ -833,9 +1020,53 @@ impl MappedKeys {
   pub fn escape_pressed(&self) -> bool {
     !self.escape_released
   }
+
+  pub fn f1_pressed(&self) -> bool {
+    !self.f1_released
+  }
+  
+  pub fn f2_pressed(&self) -> bool {
+    !self.f2_released
+  }
+  
+  pub fn f3_pressed(&self) -> bool {
+    !self.f3_released
+  }
+  
+  pub fn f4_pressed(&self) -> bool {
+    !self.f4_released
+  }
+  
+  pub fn f5_pressed(&self) -> bool {
+    !self.f5_released
+  }
+  
+  pub fn f6_pressed(&self) -> bool {
+    !self.f6_released
+  }
+  
+  pub fn f7_pressed(&self) -> bool {
+    !self.f7_released
+  }
+  
+  pub fn f8_pressed(&self) -> bool {
+    !self.f8_released
+  }
+  
+  pub fn f9_pressed(&self) -> bool {
+    !self.f9_released
+  }
   
   pub fn f10_pressed(&self) -> bool {
     !self.f10_released
+  }
+  
+  pub fn f11_pressed(&self) -> bool {
+    !self.f11_released
+  }
+  
+  pub fn f12_pressed(&self) -> bool {
+    !self.f12_released
   }
   
   pub fn tab_pressed(&self) -> bool {
