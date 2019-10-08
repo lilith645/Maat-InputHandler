@@ -255,6 +255,35 @@ pub const NINE: u32 = 10;
 #[cfg(target_os = "macos")]
 pub const NINE: u32 = 25;
 
+#[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
+pub const LEFT: u32 = 105;
+#[cfg(target_os = "macos")]
+pub const LEFT: u32 = 123;
+#[cfg(target_os = "windows")]
+pub const LEFT: u32 = 75;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
+pub const RIGHT: u32 = 106;
+#[cfg(target_os = "macos")]
+pub const RIGHT: u32 = 124;
+#[cfg(target_os = "windows")]
+pub const RIGHT: u32 = 77;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
+pub const UP: u32 = 107;
+#[cfg(target_os = "macos")]
+pub const UP: u32 = 125;
+#[cfg(target_os = "windows")]
+pub const UP: u32 = 72;
+
+#[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
+pub const DOWN: u32 = 107;
+#[cfg(target_os = "macos")]
+pub const DOWN: u32 = 125;
+#[cfg(target_os = "windows")]
+pub const DOWN: u32 = 72;
+
+
 //macos
 //escape                37
 //a                     0
@@ -417,6 +446,8 @@ pub const NINE: u32 = 25;
 //arrow right           77
 //arrow down            80
 
+// Simple offset_of macro akin to C++ offsetof
+
 #[derive(Clone)]
 pub struct MappedKeys {
   a_released: bool,
@@ -469,6 +500,10 @@ pub struct MappedKeys {
   f11_released: bool,
   f12_released: bool,
   tab_released: bool,
+  left_released: bool,
+  right_released: bool,
+  up_released: bool,
+  down_released: bool,
   pub pressed_this_frame: Vec<String>,
   currently_pressed: Vec<u32>,
   released_this_render: Vec<u32>,
@@ -527,12 +562,16 @@ impl MappedKeys {
       f11_released: true,
       f12_released: true,
       tab_released: true,
+      left_released: true,
+      right_released: true,
+      up_released: true,
+      down_released: true,
       pressed_this_frame: Vec::new(),
       currently_pressed: Vec::new(),
       released_this_render: Vec::new(),
     }
   }
-  
+
   pub fn get_pressed_this_frame(&self) -> Vec<String> {
     self.pressed_this_frame.clone()
   }
@@ -586,6 +625,10 @@ impl MappedKeys {
     let x = self.x_released;
     let y = self.y_released;
     let z = self.z_released;
+    let left = self.left_released;
+    let right = self.right_released;
+    let up = self.up_released;
+    let down = self.down_released;
     
     self.a_released = self.check_released(a, A);
     self.b_released = self.check_released(b, B);
@@ -613,6 +656,10 @@ impl MappedKeys {
     self.x_released = self.check_released(x, X);
     self.y_released = self.check_released(y, Y);
     self.z_released = self.check_released(z, Z);
+    self.left_released = self.check_released(left, LEFT);
+    self.right_released = self.check_released(right, RIGHT);
+    self.up_released = self.check_released(up, UP);
+    self.down_released = self.check_released(down, DOWN);
     
     if !self.one_released {
       if self.key_released(ONE) {
@@ -1071,6 +1118,22 @@ impl MappedKeys {
   
   pub fn tab_pressed(&self) -> bool {
     !self.tab_released
+  }
+  
+  pub fn left_pressed(&self) -> bool {
+    !self.left_released
+  }
+  
+  pub fn right_pressed(&self) -> bool {
+    !self.right_released
+  }
+  
+  pub fn up_pressed(&self) -> bool {
+    !self.up_released
+  }
+  
+  pub fn down_pressed(&self) -> bool {
+    !self.down_released
   }
 }
 
