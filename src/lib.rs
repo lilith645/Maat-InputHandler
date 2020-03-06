@@ -270,14 +270,14 @@ pub const RIGHT: u32 = 124;
 pub const RIGHT: u32 = 77;
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
-pub const UP: u32 = 107;
+pub const UP: u32 = 103;
 #[cfg(target_os = "macos")]
 pub const UP: u32 = 125;
 #[cfg(target_os = "windows")]
 pub const UP: u32 = 72;
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos"), not(target_os = "windows")))]
-pub const DOWN: u32 = 107;
+pub const DOWN: u32 = 108;
 #[cfg(target_os = "macos")]
 pub const DOWN: u32 = 125;
 #[cfg(target_os = "windows")]
