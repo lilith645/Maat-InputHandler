@@ -218,7 +218,7 @@ pub const ONE: u32 = 18;
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const TWO: u32 = 3;
 #[cfg(target_os = "macos")]
-pub const TWo: u32 = 19;
+pub const TWO: u32 = 19;
 
 #[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
 pub const THREE: u32 = 4;
@@ -594,6 +594,7 @@ impl MappedKeys {
     key_released
   }
   
+  #[cfg(all(not(target_os = "android")))]
   pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
     self.pressed_this_frame.clear();
     self.currently_pressed = pressed;
