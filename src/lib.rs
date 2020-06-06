@@ -450,60 +450,114 @@ pub const DOWN: u32 = 72;
 
 #[derive(Clone)]
 pub struct MappedKeys {
-  a_released: bool,
-  b_released: bool,
-  c_released: bool,
-  d_released: bool,
-  e_released: bool,
-  f_released: bool,
-  g_released: bool,
-  h_released: bool,
-  i_released: bool,
-  j_released: bool,
-  k_released: bool,
-  l_released: bool,
-  m_released: bool,
-  n_released: bool,
-  o_released: bool,
-  p_released: bool,
-  q_released: bool,
-  r_released: bool,
-  s_released: bool,
-  t_released: bool,
-  u_released: bool,
-  v_released: bool,
-  w_released: bool,
-  x_released: bool,
-  y_released: bool,
-  z_released: bool,
-  one_released: bool,
-  two_released: bool,
-  three_released: bool,
-  four_released: bool,
-  five_released: bool,
-  six_released: bool,
-  seven_released: bool,
-  eight_released: bool,
-  nine_released: bool,
-  space_released: bool,
-  escape_released: bool,
-  f1_released: bool,
-  f2_released: bool,
-  f3_released: bool,
-  f4_released: bool,
-  f5_released: bool,
-  f6_released: bool,
-  f7_released: bool,
-  f8_released: bool,
-  f9_released: bool,
-  f10_released: bool,
-  f11_released: bool,
-  f12_released: bool,
-  tab_released: bool,
-  left_released: bool,
-  right_released: bool,
-  up_released: bool,
-  down_released: bool,
+  a_pressed: bool,
+  b_pressed: bool,
+  c_pressed: bool,
+  d_pressed: bool,
+  e_pressed: bool,
+  f_pressed: bool,
+  g_pressed: bool,
+  h_pressed: bool,
+  i_pressed: bool,
+  j_pressed: bool,
+  k_pressed: bool,
+  l_pressed: bool,
+  m_pressed: bool,
+  n_pressed: bool,
+  o_pressed: bool,
+  p_pressed: bool,
+  q_pressed: bool,
+  r_pressed: bool,
+  s_pressed: bool,
+  t_pressed: bool,
+  u_pressed: bool,
+  v_pressed: bool,
+  w_pressed: bool,
+  x_pressed: bool,
+  y_pressed: bool,
+  z_pressed: bool,
+  one_pressed: bool,
+  two_pressed: bool,
+  three_pressed: bool,
+  four_pressed: bool,
+  five_pressed: bool,
+  six_pressed: bool,
+  seven_pressed: bool,
+  eight_pressed: bool,
+  nine_pressed: bool,
+  space_pressed: bool,
+  escape_pressed: bool,
+  f1_pressed: bool,
+  f2_pressed: bool,
+  f3_pressed: bool,
+  f4_pressed: bool,
+  f5_pressed: bool,
+  f6_pressed: bool,
+  f7_pressed: bool,
+  f8_pressed: bool,
+  f9_pressed: bool,
+  f10_pressed: bool,
+  f11_pressed: bool,
+  f12_pressed: bool,
+  tab_pressed: bool,
+  left_pressed: bool,
+  right_pressed: bool,
+  up_pressed: bool,
+  down_pressed: bool,
+  a_held: bool,
+  b_held: bool,
+  c_held: bool,
+  d_held: bool,
+  e_held: bool,
+  f_held: bool,
+  g_held: bool,
+  h_held: bool,
+  i_held: bool,
+  j_held: bool,
+  k_held: bool,
+  l_held: bool,
+  m_held: bool,
+  n_held: bool,
+  o_held: bool,
+  p_held: bool,
+  q_held: bool,
+  r_held: bool,
+  s_held: bool,
+  t_held: bool,
+  u_held: bool,
+  v_held: bool,
+  w_held: bool,
+  x_held: bool,
+  y_held: bool,
+  z_held: bool,
+  one_held: bool,
+  two_held: bool,
+  three_held: bool,
+  four_held: bool,
+  five_held: bool,
+  six_held: bool,
+  seven_held: bool,
+  eight_held: bool,
+  nine_held: bool,
+  space_held: bool,
+  escape_held: bool,
+  f1_held: bool,
+  f2_held: bool,
+  f3_held: bool,
+  f4_held: bool,
+  f5_held: bool,
+  f6_held: bool,
+  f7_held: bool,
+  f8_held: bool,
+  f9_held: bool,
+  f10_held: bool,
+  f11_held: bool,
+  f12_held: bool,
+  tab_held: bool,
+  left_held: bool,
+  right_held: bool,
+  up_held: bool,
+  down_held: bool,
   pub pressed_this_frame: Vec<String>,
   currently_pressed: Vec<u32>,
   released_this_render: Vec<u32>,
@@ -512,60 +566,114 @@ pub struct MappedKeys {
 impl MappedKeys {
   pub fn new() -> MappedKeys {
     MappedKeys {
-      a_released: true,
-      b_released: true,
-      c_released: true,
-      d_released: true,
-      e_released: true,
-      f_released: true,
-      g_released: true,
-      h_released: true,
-      i_released: true,
-      j_released: true,
-      k_released: true,
-      l_released: true,
-      m_released: true,
-      n_released: true,
-      o_released: true,
-      p_released: true,
-      q_released: true,
-      r_released: true,
-      s_released: true,
-      t_released: true,
-      u_released: true,
-      v_released: true,
-      w_released: true,
-      x_released: true,
-      y_released: true,
-      z_released: true,
-      one_released: true,
-      two_released: true,
-      three_released: true,
-      four_released: true,
-      five_released: true,
-      six_released: true,
-      seven_released: true,
-      eight_released: true,
-      nine_released: true,
-      space_released: true,
-      escape_released: true,
-      f1_released: true,
-      f2_released: true,
-      f3_released: true,
-      f4_released: true,
-      f5_released: true,
-      f6_released: true,
-      f7_released: true,
-      f8_released: true,
-      f9_released: true,
-      f10_released: true,
-      f11_released: true,
-      f12_released: true,
-      tab_released: true,
-      left_released: true,
-      right_released: true,
-      up_released: true,
-      down_released: true,
+      a_pressed: false,
+      b_pressed: false,
+      c_pressed: false,
+      d_pressed: false,
+      e_pressed: false,
+      f_pressed: false,
+      g_pressed: false,
+      h_pressed: false,
+      i_pressed: false,
+      j_pressed: false,
+      k_pressed: false,
+      l_pressed: false,
+      m_pressed: false,
+      n_pressed: false,
+      o_pressed: false,
+      p_pressed: false,
+      q_pressed: false,
+      r_pressed: false,
+      s_pressed: false,
+      t_pressed: false,
+      u_pressed: false,
+      v_pressed: false,
+      w_pressed: false,
+      x_pressed: false,
+      y_pressed: false,
+      z_pressed: false,
+      one_pressed: false,
+      two_pressed: false,
+      three_pressed: false,
+      four_pressed: false,
+      five_pressed: false,
+      six_pressed: false,
+      seven_pressed: false,
+      eight_pressed: false,
+      nine_pressed: false,
+      space_pressed: false,
+      escape_pressed: false,
+      f1_pressed: false,
+      f2_pressed: false,
+      f3_pressed: false,
+      f4_pressed: false,
+      f5_pressed: false,
+      f6_pressed: false,
+      f7_pressed: false,
+      f8_pressed: false,
+      f9_pressed: false,
+      f10_pressed: false,
+      f11_pressed: false,
+      f12_pressed: false,
+      tab_pressed: false,
+      left_pressed: false,
+      right_pressed: false,
+      up_pressed: false,
+      down_pressed: false,
+      a_held: false,
+      b_held: false,
+      c_held: false,
+      d_held: false,
+      e_held: false,
+      f_held: false,
+      g_held: false,
+      h_held: false,
+      i_held: false,
+      j_held: false,
+      k_held: false,
+      l_held: false,
+      m_held: false,
+      n_held: false,
+      o_held: false,
+      p_held: false,
+      q_held: false,
+      r_held: false,
+      s_held: false,
+      t_held: false,
+      u_held: false,
+      v_held: false,
+      w_held: false,
+      x_held: false,
+      y_held: false,
+      z_held: false,
+      one_held: false,
+      two_held: false,
+      three_held: false,
+      four_held: false,
+      five_held: false,
+      six_held: false,
+      seven_held: false,
+      eight_held: false,
+      nine_held: false,
+      space_held: false,
+      escape_held: false,
+      f1_held: false,
+      f2_held: false,
+      f3_held: false,
+      f4_held: false,
+      f5_held: false,
+      f6_held: false,
+      f7_held: false,
+      f8_held: false,
+      f9_held: false,
+      f10_held: false,
+      f11_held: false,
+      f12_held: false,
+      tab_held: false,
+      left_held: false,
+      right_held: false,
+      up_held: false,
+      down_held: false,
       pressed_this_frame: Vec::new(),
       currently_pressed: Vec::new(),
       released_this_render: Vec::new(),
@@ -576,23 +684,27 @@ impl MappedKeys {
     self.pressed_this_frame.clone()
   }
   
-  pub fn key_released(&self, key: u32) -> bool {
-    (self.was_key_released(key) || !self.is_key_pressed(key))
+  pub fn key_held(&self, key: u32) -> bool {
+    self.is_key_pressed(key)
   }
   
-  pub fn check_released(&self, released: bool, key: u32) -> bool {
-    let mut key_released = released;
-    if !key_released {
-      if self.key_released(key) {
-        key_released = true;
+  pub fn key_pressed(&self, key: u32) -> bool {
+    self.was_key_pressed(key)
+  }
+  /*
+  pub fn check_pressed(&self, released: bool, key: u32) -> bool {
+    let mut key_pressed = released;
+    if !key_pressed {
+      if self.key_pressed(key) {
+        key_pressed = true;
       }
     } else {
       if self.is_key_pressed(key) {
-        key_released = false;
+        key_pressed = false;
       }
     }
-    key_released
-  }
+    key_pressed
+  }*/
   
   #[cfg(all(not(target_os = "android")))]
   pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
@@ -600,307 +712,98 @@ impl MappedKeys {
     self.currently_pressed = pressed;
     self.released_this_render = released;
     
-    let a = self.a_released;
-    let b = self.b_released;
-    let c = self.c_released;
-    let d = self.d_released;
-    let e = self.e_released;
-    let f = self.f_released;
-    let g = self.g_released;
-    let h = self.h_released;
-    let i = self.i_released;
-    let j = self.j_released;
-    let k = self.k_released;
-    let l = self.l_released;
-    let m = self.m_released;
-    let n = self.n_released;
-    let o = self.o_released;
-    let p = self.p_released;
-    let q = self.q_released;
-    let r = self.r_released;
-    let s = self.s_released;
-    let t = self.t_released;
-    let u = self.u_released;
-    let v = self.v_released;
-    let w = self.w_released;
-    let x = self.x_released;
-    let y = self.y_released;
-    let z = self.z_released;
-    let left = self.left_released;
-    let right = self.right_released;
-    let up = self.up_released;
-    let down = self.down_released;
+    let a = self.a_pressed;
+    let b = self.b_pressed;
+    let c = self.c_pressed;
+    let d = self.d_pressed;
+    let e = self.e_pressed;
+    let f = self.f_pressed;
+    let g = self.g_pressed;
+    let h = self.h_pressed;
+    let i = self.i_pressed;
+    let j = self.j_pressed;
+    let k = self.k_pressed;
+    let l = self.l_pressed;
+    let m = self.m_pressed;
+    let n = self.n_pressed;
+    let o = self.o_pressed;
+    let p = self.p_pressed;
+    let q = self.q_pressed;
+    let r = self.r_pressed;
+    let s = self.s_pressed;
+    let t = self.t_pressed;
+    let u = self.u_pressed;
+    let v = self.v_pressed;
+    let w = self.w_pressed;
+    let x = self.x_pressed;
+    let y = self.y_pressed;
+    let z = self.z_pressed;
+    let left = self.left_pressed;
+    let right = self.right_pressed;
+    let up = self.up_pressed;
+    let down = self.down_pressed;
     
-    self.a_released = self.check_released(a, A);
-    self.b_released = self.check_released(b, B);
-    self.c_released = self.check_released(c, C);
-    self.d_released = self.check_released(d, D);
-    self.e_released = self.check_released(e, E);
-    self.f_released = self.check_released(f, F);
-    self.g_released = self.check_released(g, G);
-    self.h_released = self.check_released(h, H);
-    self.i_released = self.check_released(i, I);
-    self.j_released = self.check_released(j, J);
-    self.k_released = self.check_released(k, K);
-    self.l_released = self.check_released(l, L);
-    self.m_released = self.check_released(m, M);
-    self.n_released = self.check_released(n, N);
-    self.o_released = self.check_released(o, O);
-    self.p_released = self.check_released(p, P);
-    self.q_released = self.check_released(q, Q);
-    self.r_released = self.check_released(r, R);
-    self.s_released = self.check_released(s, S);
-    self.t_released = self.check_released(t, T);
-    self.u_released = self.check_released(u, U);
-    self.v_released = self.check_released(v, V);
-    self.w_released = self.check_released(w, W);
-    self.x_released = self.check_released(x, X);
-    self.y_released = self.check_released(y, Y);
-    self.z_released = self.check_released(z, Z);
-    self.left_released = self.check_released(left, LEFT);
-    self.right_released = self.check_released(right, RIGHT);
-    self.up_released = self.check_released(up, UP);
-    self.down_released = self.check_released(down, DOWN);
+    self.a_held = self.key_held(A);
+    self.b_held = self.key_held(B);
+    self.c_held = self.key_held(C);
+    self.d_held = self.key_held(D);
+    self.e_held = self.key_held(E);
+    self.f_held = self.key_held(F);
+    self.g_held = self.key_held(G);
+    self.h_held = self.key_held(H);
+    self.i_held = self.key_held(I);
+    self.j_held = self.key_held(J);
+    self.k_held = self.key_held(K);
+    self.l_held = self.key_held(L);
+    self.m_held = self.key_held(M);
+    self.n_held = self.key_held(N);
+    self.o_held = self.key_held(O);
+    self.p_held = self.key_held(P);
+    self.q_held = self.key_held(Q);
+    self.r_held = self.key_held(R);
+    self.s_held = self.key_held(S);
+    self.t_held = self.key_held(T);
+    self.u_held = self.key_held(U);
+    self.v_held = self.key_held(V);
+    self.w_held = self.key_held(W);
+    self.x_held = self.key_held(X);
+    self.y_held = self.key_held(Y);
+    self.z_held = self.key_held(Z);
+    self.left_held = self.key_held(LEFT);
+    self.right_held = self.key_held(RIGHT);
+    self.up_held = self.key_held(UP);
+    self.down_held = self.key_held(DOWN);
     
-    if !self.one_released {
-      if self.key_released(ONE) {
-        self.one_released = true;
-      }
-    } else {
-      if self.is_key_pressed(ONE) {
-        self.one_released = false;
-      }
-    }
-    
-    if !self.two_released {
-      if self.key_released(TWO) {
-        self.two_released = true;
-      }
-    } else {
-      if self.is_key_pressed(TWO) {
-        self.two_released = false;
-      }
-    }
-    
-    if !self.three_released {
-      if self.key_released(THREE) {
-        self.three_released = true;
-      }
-    } else {
-      if self.is_key_pressed(THREE) {
-        self.three_released = false;
-      }
-    }
-    
-    if !self.four_released {
-      if self.key_released(FOUR) {
-        self.four_released = true;
-      }
-    } else {
-      if self.is_key_pressed(FOUR) {
-        self.four_released = false;
-      }
-    }
-    
-    if !self.five_released {
-      if self.key_released(FIVE) {
-        self.five_released = true;
-      }
-    } else {
-      if self.is_key_pressed(FIVE) {
-        self.five_released = false;
-      }
-    }
-    
-    if !self.six_released {
-      if self.key_released(SIX) {
-        self.six_released = true;
-      }
-    } else {
-      if self.is_key_pressed(SIX) {
-        self.six_released = false;
-      }
-    }
-    
-    if !self.seven_released {
-      if self.key_released(SEVEN) {
-        self.seven_released = true;
-      }
-    } else {
-      if self.is_key_pressed(SEVEN) {
-        self.seven_released = false;
-      }
-    }
-    
-    if !self.eight_released {
-      if self.key_released(EIGHT) {
-        self.eight_released = true;
-      }
-    } else {
-      if self.is_key_pressed(EIGHT) {
-        self.eight_released = false;
-      }
-    }
-    
-    if !self.nine_released {
-      if self.key_released(NINE) {
-        self.nine_released = true;
-      }
-    } else {
-      if self.is_key_pressed(NINE) {
-        self.nine_released = false;
-      }
-    }
-    
-    if !self.space_released {
-      if self.key_released(SPACE) {
-        self.space_released = true;
-      }
-    } else {
-      if self.is_key_pressed(SPACE) {
-        self.space_released = false;
-      }
-    }
-    
-    if !self.escape_released {
-      if self.key_released(ESCAPE) {
-        self.escape_released = true;
-      }
-    } else {
-      if self.is_key_pressed(ESCAPE) {
-        self.escape_released = false;
-      }
-    }
-    
-    if !self.f1_released {
-      if self.key_released(F1) {
-        self.f1_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F1) {
-        self.f1_released = false;
-      }
-    }
-    
-    if !self.f2_released {
-      if self.key_released(F2) {
-        self.f2_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F2) {
-        self.f2_released = false;
-      }
-    }
-    
-    if !self.f3_released {
-      if self.key_released(F3) {
-        self.f3_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F3) {
-        self.f3_released = false;
-      }
-    }
-    
-    if !self.f4_released {
-      if self.key_released(F4) {
-        self.f4_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F4) {
-        self.f4_released = false;
-      }
-    }
-    
-    if !self.f5_released {
-      if self.key_released(F5) {
-        self.f5_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F5) {
-        self.f5_released = false;
-      }
-    }
-    
-    if !self.f6_released {
-      if self.key_released(F6) {
-        self.f6_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F6) {
-        self.f6_released = false;
-      }
-    }
-    
-    if !self.f7_released {
-      if self.key_released(F7) {
-        self.f7_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F7) {
-        self.f7_released = false;
-      }
-    }
-    
-    if !self.f8_released {
-      if self.key_released(F8) {
-        self.f8_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F8) {
-        self.f8_released = false;
-      }
-    }
-    
-    if !self.f9_released {
-      if self.key_released(F9) {
-        self.f9_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F9) {
-        self.f9_released = false;
-      }
-    }
-    
-    if !self.f10_released {
-      if self.key_released(F10) {
-        self.f10_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F10) {
-        self.f10_released = false;
-      }
-    }
-    
-    if !self.f11_released {
-      if self.key_released(F11) {
-        self.f11_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F11) {
-        self.f12_released = false;
-      }
-    }
-    
-    if !self.f12_released {
-      if self.key_released(F12) {
-        self.f12_released = true;
-      }
-    } else {
-      if self.is_key_pressed(F12) {
-        self.f12_released = false;
-      }
-    }
-    
-    if !self.tab_released {
-      if self.key_released(TAB) {
-        self.tab_released = true;
-      }
-    } else {
-      if self.is_key_pressed(TAB) {
-        self.tab_released = false;
-      }
-    }
+    self.a_pressed = self.key_pressed(A);
+    self.b_pressed = self.key_pressed(B);
+    self.c_pressed = self.key_pressed(C);
+    self.d_pressed = self.key_pressed(D);
+    self.e_pressed = self.key_pressed(E);
+    self.f_pressed = self.key_pressed(F);
+    self.g_pressed = self.key_pressed(G);
+    self.h_pressed = self.key_pressed(H);
+    self.i_pressed = self.key_pressed(I);
+    self.j_pressed = self.key_pressed(J);
+    self.k_pressed = self.key_pressed(K);
+    self.l_pressed = self.key_pressed(L);
+    self.m_pressed = self.key_pressed(M);
+    self.n_pressed = self.key_pressed(N);
+    self.o_pressed = self.key_pressed(O);
+    self.p_pressed = self.key_pressed(P);
+    self.q_pressed = self.key_pressed(Q);
+    self.r_pressed = self.key_pressed(R);
+    self.s_pressed = self.key_pressed(S);
+    self.t_pressed = self.key_pressed(T);
+    self.u_pressed = self.key_pressed(U);
+    self.v_pressed = self.key_pressed(V);
+    self.w_pressed = self.key_pressed(W);
+    self.x_pressed = self.key_pressed(X);
+    self.y_pressed = self.key_pressed(Y);
+    self.z_pressed = self.key_pressed(Z);
+    self.left_pressed = self.key_pressed(LEFT);
+    self.right_pressed = self.key_pressed(RIGHT);
+    self.up_pressed = self.key_pressed(UP);
+    self.down_pressed = self.key_pressed(DOWN);
   }
   
   fn is_key_pressed(&self, key: u32) -> bool {
@@ -912,7 +815,7 @@ impl MappedKeys {
     false
   }
 
-  fn was_key_released(&self, key: u32) -> bool {
+  fn was_key_pressed(&self, key: u32) -> bool {
     for element in self.released_this_render.iter() {
       if *element == key {
         return true;
@@ -922,219 +825,435 @@ impl MappedKeys {
   }
   
   pub fn a_pressed(&self) -> bool {
-    !self.a_released
+    self.a_pressed
   }
   
   pub fn b_pressed(&self) -> bool {
-    !self.b_released
+    self.b_pressed
   }
   
   pub fn c_pressed(&self) -> bool {
-    !self.c_released
+    self.c_pressed
   }
   
   pub fn d_pressed(&self) -> bool {
-    !self.d_released
+    self.d_pressed
   }
   
   pub fn e_pressed(&self) -> bool {
-    !self.e_released
+    self.e_pressed
   }
   
   pub fn f_pressed(&self) -> bool {
-    !self.f_released
+    self.f_pressed
   }
   
   pub fn g_pressed(&self) -> bool {
-    !self.g_released
+    self.g_pressed
   }
   
   pub fn h_pressed(&self) -> bool {
-    !self.h_released
+    self.h_pressed
   }
   
   pub fn i_pressed(&self) -> bool {
-    !self.i_released
+    self.i_pressed
   }
   
   pub fn j_pressed(&self) -> bool {
-    !self.j_released
+    self.j_pressed
   }
   
   pub fn k_pressed(&self) -> bool {
-    !self.k_released
+    self.k_pressed
   }
   
   pub fn l_pressed(&self) -> bool {
-    !self.l_released
+    self.l_pressed
   }
   
   pub fn m_pressed(&self) -> bool {
-    !self.m_released
+    self.m_pressed
   }
   
   pub fn n_pressed(&self) -> bool {
-    !self.n_released
+    self.n_pressed
   }
   
   pub fn o_pressed(&self) -> bool {
-    !self.o_released
+    self.o_pressed
   }
   
   pub fn p_pressed(&self) -> bool {
-    !self.p_released
+    self.p_pressed
   }
   
   pub fn q_pressed(&self) -> bool {
-    !self.q_released
+    self.q_pressed
   }
   
   pub fn r_pressed(&self) -> bool {
-    !self.r_released
+    self.r_pressed
   }
   
   pub fn s_pressed(&self) -> bool {
-    !self.s_released
+    self.s_pressed
   }
   
   pub fn t_pressed(&self) -> bool {
-    !self.t_released
+    self.t_pressed
   }
   
   pub fn u_pressed(&self) -> bool {
-    !self.u_released
+    self.u_pressed
   }
   
   pub fn v_pressed(&self) -> bool {
-    !self.v_released
+    self.v_pressed
   }
   
   pub fn w_pressed(&self) -> bool {
-    !self.w_released
+    self.w_pressed
   }
   
   pub fn x_pressed(&self) -> bool {
-    !self.x_released
+    self.x_pressed
   }
   
   pub fn y_pressed(&self) -> bool {
-    !self.y_released
+    self.y_pressed
   }
   
   pub fn z_pressed(&self) -> bool {
-    !self.z_released
+    self.z_pressed
   }
   
   pub fn one_pressed(&self) -> bool {
-    !self.one_released
+    self.one_pressed
   }
   
   pub fn two_pressed(&self) -> bool {
-    !self.two_released
+    self.two_pressed
   }
   
   pub fn three_pressed(&self) -> bool {
-    !self.three_released
+    self.three_pressed
   }
   
   pub fn four_pressed(&self) -> bool {
-    !self.four_released
+    self.four_pressed
   }
   
   pub fn five_pressed(&self) -> bool {
-    !self.five_released
+    self.five_pressed
   }
   
   pub fn six_pressed(&self) -> bool {
-    !self.six_released
+    self.six_pressed
   }
   
   pub fn seven_pressed(&self) -> bool {
-    !self.seven_released
+    self.seven_pressed
   }
   
   pub fn eight_pressed(&self) -> bool {
-    !self.eight_released
+    self.eight_pressed
   }
   
   pub fn nine_pressed(&self) -> bool {
-    !self.nine_released
+    self.nine_pressed
   }
   
   pub fn space_pressed(&self) -> bool {
-    !self.space_released
+    self.space_pressed
   }
   
   pub fn escape_pressed(&self) -> bool {
-    !self.escape_released
+    self.escape_pressed
   }
 
   pub fn f1_pressed(&self) -> bool {
-    !self.f1_released
+    self.f1_pressed
   }
   
   pub fn f2_pressed(&self) -> bool {
-    !self.f2_released
+    self.f2_pressed
   }
   
   pub fn f3_pressed(&self) -> bool {
-    !self.f3_released
+    self.f3_pressed
   }
   
   pub fn f4_pressed(&self) -> bool {
-    !self.f4_released
+    self.f4_pressed
   }
   
   pub fn f5_pressed(&self) -> bool {
-    !self.f5_released
+    self.f5_pressed
   }
   
   pub fn f6_pressed(&self) -> bool {
-    !self.f6_released
+    self.f6_pressed
   }
   
   pub fn f7_pressed(&self) -> bool {
-    !self.f7_released
+    self.f7_pressed
   }
   
   pub fn f8_pressed(&self) -> bool {
-    !self.f8_released
+    self.f8_pressed
   }
   
   pub fn f9_pressed(&self) -> bool {
-    !self.f9_released
+    self.f9_pressed
   }
   
   pub fn f10_pressed(&self) -> bool {
-    !self.f10_released
+    self.f10_pressed
   }
   
   pub fn f11_pressed(&self) -> bool {
-    !self.f11_released
+    self.f11_pressed
   }
   
   pub fn f12_pressed(&self) -> bool {
-    !self.f12_released
+    self.f12_pressed
   }
   
   pub fn tab_pressed(&self) -> bool {
-    !self.tab_released
+    self.tab_pressed
   }
   
   pub fn left_pressed(&self) -> bool {
-    !self.left_released
+    self.left_pressed
   }
   
   pub fn right_pressed(&self) -> bool {
-    !self.right_released
+    self.right_pressed
   }
   
   pub fn up_pressed(&self) -> bool {
-    !self.up_released
+    self.up_pressed
   }
   
   pub fn down_pressed(&self) -> bool {
-    !self.down_released
+    self.down_pressed
+  }
+  
+  pub fn a_held(&self) -> bool {
+    self.a_held
+  }
+  
+  pub fn b_held(&self) -> bool {
+    self.b_held
+  }
+  
+  pub fn c_held(&self) -> bool {
+    self.c_held
+  }
+  
+  pub fn d_held(&self) -> bool {
+    self.d_held
+  }
+  
+  pub fn e_held(&self) -> bool {
+    self.e_held
+  }
+  
+  pub fn f_held(&self) -> bool {
+    self.f_held
+  }
+  
+  pub fn g_held(&self) -> bool {
+    self.g_held
+  }
+  
+  pub fn h_held(&self) -> bool {
+    self.h_held
+  }
+  
+  pub fn i_held(&self) -> bool {
+    self.i_held
+  }
+  
+  pub fn j_held(&self) -> bool {
+    self.j_held
+  }
+  
+  pub fn k_held(&self) -> bool {
+    self.k_held
+  }
+  
+  pub fn l_held(&self) -> bool {
+    self.l_held
+  }
+  
+  pub fn m_held(&self) -> bool {
+    self.m_held
+  }
+  
+  pub fn n_held(&self) -> bool {
+    self.n_held
+  }
+  
+  pub fn o_held(&self) -> bool {
+    self.o_held
+  }
+  
+  pub fn p_held(&self) -> bool {
+    self.p_held
+  }
+  
+  pub fn q_held(&self) -> bool {
+    self.q_held
+  }
+  
+  pub fn r_held(&self) -> bool {
+    self.r_held
+  }
+  
+  pub fn s_held(&self) -> bool {
+    self.s_held
+  }
+  
+  pub fn t_held(&self) -> bool {
+    self.t_held
+  }
+  
+  pub fn u_held(&self) -> bool {
+    self.u_held
+  }
+  
+  pub fn v_held(&self) -> bool {
+    self.v_held
+  }
+  
+  pub fn w_held(&self) -> bool {
+    self.w_held
+  }
+  
+  pub fn x_held(&self) -> bool {
+    self.x_held
+  }
+  
+  pub fn y_held(&self) -> bool {
+    self.y_held
+  }
+  
+  pub fn z_held(&self) -> bool {
+    self.z_held
+  }
+  
+  pub fn one_held(&self) -> bool {
+    self.one_held
+  }
+  
+  pub fn two_held(&self) -> bool {
+    self.two_held
+  }
+  
+  pub fn three_held(&self) -> bool {
+    self.three_held
+  }
+  
+  pub fn four_held(&self) -> bool {
+    self.four_held
+  }
+  
+  pub fn five_held(&self) -> bool {
+    self.five_held
+  }
+  
+  pub fn six_held(&self) -> bool {
+    self.six_held
+  }
+  
+  pub fn seven_held(&self) -> bool {
+    self.seven_held
+  }
+  
+  pub fn eight_held(&self) -> bool {
+    self.eight_held
+  }
+  
+  pub fn nine_held(&self) -> bool {
+    self.nine_held
+  }
+  
+  pub fn space_held(&self) -> bool {
+    self.space_held
+  }
+  
+  pub fn escape_held(&self) -> bool {
+    self.escape_held
+  }
+
+  pub fn f1_held(&self) -> bool {
+    self.f1_held
+  }
+  
+  pub fn f2_held(&self) -> bool {
+    self.f2_held
+  }
+  
+  pub fn f3_held(&self) -> bool {
+    self.f3_held
+  }
+  
+  pub fn f4_held(&self) -> bool {
+    self.f4_held
+  }
+  
+  pub fn f5_held(&self) -> bool {
+    self.f5_held
+  }
+  
+  pub fn f6_held(&self) -> bool {
+    self.f6_held
+  }
+  
+  pub fn f7_held(&self) -> bool {
+    self.f7_held
+  }
+  
+  pub fn f8_held(&self) -> bool {
+    self.f8_held
+  }
+  
+  pub fn f9_held(&self) -> bool {
+    self.f9_held
+  }
+  
+  pub fn f10_held(&self) -> bool {
+    self.f10_held
+  }
+  
+  pub fn f11_held(&self) -> bool {
+    self.f11_held
+  }
+  
+  pub fn f12_held(&self) -> bool {
+    self.f12_held
+  }
+  
+  pub fn tab_held(&self) -> bool {
+    self.tab_held
+  }
+  
+  pub fn left_held(&self) -> bool {
+    self.left_held
+  }
+  
+  pub fn right_held(&self) -> bool {
+    self.right_held
+  }
+  
+  pub fn up_held(&self) -> bool {
+    self.up_held
+  }
+  
+  pub fn down_held(&self) -> bool {
+    self.down_held
   }
 }
 
