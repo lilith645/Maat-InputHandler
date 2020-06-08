@@ -742,6 +742,15 @@ impl MappedKeys {
     let right = self.right_pressed;
     let up = self.up_pressed;
     let down = self.down_pressed;
+    let one = self.one_pressed;
+    let two = self.two_pressed;
+    let three = self.three_pressed;
+    let four = self.four_pressed;
+    let five = self.five_pressed;
+    let six = self.six_pressed;
+    let seven = self.seven_pressed;
+    let eight = self.eight_pressed;
+    let nine = self.nine_pressed;
     
     self.a_held = self.key_held(A);
     self.b_held = self.key_held(B);
@@ -773,37 +782,146 @@ impl MappedKeys {
     self.right_held = self.key_held(RIGHT);
     self.up_held = self.key_held(UP);
     self.down_held = self.key_held(DOWN);
+    self.one_held = self.key_held(ONE);
+    self.two_held = self.key_held(TWO);
+    self.three_held = self.key_held(THREE);
+    self.four_held = self.key_held(FOUR);
+    self.five_held = self.key_held(FIVE);
+    self.six_held = self.key_held(SIX);
+    self.seven_held = self.key_held(SEVEN);
+    self.eight_held = self.key_held(EIGHT);
+    self.nine_held = self.key_held(NINE);
     
-    self.a_pressed = self.key_pressed(A);
-    self.b_pressed = self.key_pressed(B);
-    self.c_pressed = self.key_pressed(C);
-    self.d_pressed = self.key_pressed(D);
-    self.e_pressed = self.key_pressed(E);
-    self.f_pressed = self.key_pressed(F);
-    self.g_pressed = self.key_pressed(G);
-    self.h_pressed = self.key_pressed(H);
-    self.i_pressed = self.key_pressed(I);
-    self.j_pressed = self.key_pressed(J);
-    self.k_pressed = self.key_pressed(K);
-    self.l_pressed = self.key_pressed(L);
-    self.m_pressed = self.key_pressed(M);
-    self.n_pressed = self.key_pressed(N);
-    self.o_pressed = self.key_pressed(O);
-    self.p_pressed = self.key_pressed(P);
-    self.q_pressed = self.key_pressed(Q);
-    self.r_pressed = self.key_pressed(R);
-    self.s_pressed = self.key_pressed(S);
-    self.t_pressed = self.key_pressed(T);
-    self.u_pressed = self.key_pressed(U);
-    self.v_pressed = self.key_pressed(V);
-    self.w_pressed = self.key_pressed(W);
-    self.x_pressed = self.key_pressed(X);
-    self.y_pressed = self.key_pressed(Y);
-    self.z_pressed = self.key_pressed(Z);
-    self.left_pressed = self.key_pressed(LEFT);
-    self.right_pressed = self.key_pressed(RIGHT);
-    self.up_pressed = self.key_pressed(UP);
-    self.down_pressed = self.key_pressed(DOWN);
+    self.a_pressed = if a { false } else { self.key_pressed(A) };
+    self.b_pressed = if b { false } else { self.key_pressed(B) };
+    self.c_pressed = if c { false } else { self.key_pressed(C) };
+    self.d_pressed = if d { false } else { self.key_pressed(D) };
+    self.e_pressed = if e { false } else { self.key_pressed(E) };
+    self.f_pressed = if f { false } else { self.key_pressed(F) };
+    self.g_pressed = if g { false } else { self.key_pressed(G) };
+    self.h_pressed = if h { false } else { self.key_pressed(H) };
+    self.i_pressed = if i { false } else { self.key_pressed(I) };
+    self.j_pressed = if j { false } else { self.key_pressed(J) };
+    self.k_pressed = if k { false } else { self.key_pressed(K) };
+    self.l_pressed = if l { false } else { self.key_pressed(L) };
+    self.m_pressed = if m { false } else { self.key_pressed(M) };
+    self.n_pressed = if n { false } else { self.key_pressed(N) };//if n { false } else { self.key_pressed(N) };
+    self.o_pressed = if o { false } else { self.key_pressed(O) };
+    self.p_pressed = if p { false } else { self.key_pressed(P) };
+    self.q_pressed = if q { false } else { self.key_pressed(Q) };
+    self.r_pressed = if r { false } else { self.key_pressed(R) };
+    self.s_pressed = if s { false } else { self.key_pressed(S) };
+    self.t_pressed = if t { false } else { self.key_pressed(T) };
+    self.u_pressed = if u { false } else { self.key_pressed(U) };
+    self.v_pressed = if v { false } else { self.key_pressed(V) };
+    self.w_pressed = if w { false } else { self.key_pressed(W) };
+    self.x_pressed = if x { false } else { self.key_pressed(X) };
+    self.y_pressed = if y { false } else { self.key_pressed(Y) };
+    self.z_pressed = if z { false } else { self.key_pressed(Z) };
+    self.left_pressed = if left { false } else { self.key_pressed(LEFT) };
+    self.right_pressed = if right { false } else { self.key_pressed(RIGHT) };
+    self.up_pressed = if up { false } else { self.key_pressed(UP) };
+    self.down_pressed = if down { false } else { self.key_pressed(DOWN) };
+    self.one_pressed = if one { false } else { self.key_pressed(ONE) };
+    self.two_pressed = if two { false } else { self.key_pressed(TWO) };
+    self.three_pressed = if three { false } else { self.key_pressed(THREE) };
+    self.four_pressed = if four { false } else { self.key_pressed(FOUR) };
+    self.five_pressed = if five { false } else { self.key_pressed(FIVE) };
+    self.six_pressed = if six { false } else { self.key_pressed(SIX) };
+    self.seven_pressed = if seven { false } else { self.key_pressed(SEVEN) };
+    self.eight_pressed = if eight { false } else { self.key_pressed(EIGHT) };
+    self.nine_pressed = if nine { false } else { self.key_pressed(NINE) };
+    
+    if self.a_pressed {
+      self.a_held = false;
+    }
+    if self.b_pressed {
+      self.b_held = false;
+    }
+    if self.c_pressed {
+      self.c_held = false;
+    }
+    if self.d_pressed {
+      self.d_held = false;
+    }
+    if self.e_pressed {
+      self.e_held = false;
+    }
+    if self.f_pressed {
+      self.f_held = false;
+    }
+    if self.g_pressed {
+      self.g_held = false;
+    }
+    if self.h_pressed {
+      self.h_held = false;
+    }
+    if self.i_pressed {
+      self.i_held = false;
+    }
+    if self.j_pressed {
+      self.j_held = false;
+    }
+    if self.k_pressed {
+      self.k_held = false;
+    }
+    if self.l_pressed {
+      self.l_held = false;
+    }
+    if self.m_pressed {
+      self.m_held = false;
+    }
+    if self.n_pressed {
+      self.n_held = false;
+    }
+    if self.o_pressed {
+      self.o_held = false;
+    }
+    if self.p_pressed {
+      self.p_held = false;
+    }
+    if self.q_pressed {
+      self.q_held = false;
+    }
+    if self.r_pressed {
+      self.r_held = false;
+    }
+    if self.s_pressed {
+      self.s_held = false;
+    }
+    if self.t_pressed {
+      self.t_held = false;
+    }
+    if self.u_pressed {
+      self.u_held = false;
+    }
+    if self.v_pressed {
+      self.v_held = false;
+    }
+    if self.w_pressed {
+      self.w_held = false;
+    }
+    if self.x_pressed {
+      self.x_held = false;
+    }
+    if self.y_pressed {
+      self.y_held = false;
+    }
+    if self.z_pressed {
+      self.z_held = false;
+    }
+    if self.left_pressed {
+      self.left_held = false;
+    }
+    if self.right_pressed {
+      self.right_held = false;
+    }
+    if self.up_pressed {
+      self.up_held = false;
+    }
+    if self.down_pressed {
+      self.down_held = false;
+    }
   }
   
   fn is_key_pressed(&self, key: u32) -> bool {
