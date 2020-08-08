@@ -706,7 +706,7 @@ impl MappedKeys {
     key_pressed
   }*/
   
-  #[cfg(target_os = "andoird")]
+  #[cfg(target_os = "android")]
   pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
     
   }
