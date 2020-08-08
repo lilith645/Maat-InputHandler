@@ -706,6 +706,11 @@ impl MappedKeys {
     key_pressed
   }*/
   
+  #[cfg(target_os = "andoird")]
+  pub fn upate_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
+    
+  }
+  
   #[cfg(all(not(target_os = "android")))]
   pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
     self.pressed_this_frame.clear();
