@@ -707,7 +707,7 @@ impl MappedKeys {
   }*/
   
   #[cfg(target_os = "andoird")]
-  pub fn upate_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
+  pub fn update_keys(&mut self, pressed: Vec<u32>, released: Vec<u32>) {
     
   }
   
