@@ -1383,7 +1383,7 @@ impl MappedKeys {
     self.down_held
   }
   
-  fn convert_input_to_char(input: &u32) -> Option<char> {
+  pub fn convert_input_to_char(input: &u32) -> Option<char> {
     match *input {
       A => { Some('a') },
       B => { Some('b') },
