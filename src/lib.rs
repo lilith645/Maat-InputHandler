@@ -283,6 +283,10 @@ pub const DOWN: u32 = 125;
 #[cfg(target_os = "windows")]
 pub const DOWN: u32 = 72;
 
+#[cfg(all(not(target_os = "android"), not(target_os = "macos")))]
+pub const BACKSPACE: u32 = 14;
+#[cfg(target_os = "macos")]
+pub const BACKSPACE: u32 = 51;
 
 //macos
 //escape                37
@@ -1377,6 +1381,39 @@ impl MappedKeys {
   
   pub fn down_held(&self) -> bool {
     self.down_held
+  }
+  
+  fn convert_input_to_char(input: &u32) -> Option<char> {
+    match *input {
+      A => { Some('a') },
+      B => { Some('b') },
+      C => { Some('c') },
+      D => { Some('d') },
+      E => { Some('e') },
+      F => { Some('f') },
+      G => { Some('g') },
+      H => { Some('h') },
+      I => { Some('i') },
+      J => { Some('j') },
+      K => { Some('k') },
+      L => { Some('l') },
+      M => { Some('m') },
+      N => { Some('n') },
+      O => { Some('o') },
+      P => { Some('p') },
+      Q => { Some('q') },
+      R => { Some('r') },
+      S => { Some('s') },
+      T => { Some('t') },
+      U => { Some('u') },
+      V => { Some('v') },
+      W => { Some('w') },
+      X => { Some('x') },
+      Y => { Some('y') },
+      Z => { Some('z') },
+      SPACE => { Some(' ') },
+      _ => { None }
+    }
   }
 }
 
